@@ -7,13 +7,15 @@
     "csv-parse": "^4.16.3",
     "express": "^4.17.1",
     "multer": "^1.4.3",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.2.37",
     "uuid": "^8.3.2"
   },
   "scripts": {
     "dev": "tsnd --poll --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "docker:build": "docker build -t rentx .",
-    "docker:run": "docker run -p 3333:3333 rentx"
+    "typeorm": "tsnd ./node_modules/typeorm/cli"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
