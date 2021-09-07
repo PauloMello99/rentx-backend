@@ -44,7 +44,7 @@
       "parentId": null,
       "modified": 1630950665892,
       "created": 1630950665892,
-      "name": "RentalX",
+      "name": "RentX",
       "description": "",
       "scope": "collection",
       "_type": "workspace"
@@ -175,7 +175,7 @@
       "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
       "modified": 1630950665895,
       "created": 1630950665895,
-      "fileName": "RentalX",
+      "fileName": "RentX",
       "contents": "",
       "contentType": "yaml",
       "_type": "api_spec"
