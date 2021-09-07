@@ -11,7 +11,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "dev": "tsnd --poll --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "docker:build": "docker build -t rentx .",
     "docker:run": "docker run -p 3333:3333 rentx"
   },
