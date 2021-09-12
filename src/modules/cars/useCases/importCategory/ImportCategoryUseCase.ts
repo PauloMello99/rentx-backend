@@ -2,14 +2,20 @@ import fs from "fs";
 import csvParse from "csv-parse";
 
 import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
+import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../errors/AppError";
 
 interface IImportCategory {
   name: string;
   description: string;
 }
 
+@injectable()
 class ImportCategoryUseCase {
-  constructor(private categoriesRepository: CategoriesRepository) {}
+  constructor(
+    @inject("CategoriesRepository")
+    private categoriesRepository: CategoriesRepository
+  ) {}
 
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
@@ -32,20 +38,23 @@ class ImportCategoryUseCase {
     });
   }
 
-  createCategories(categories: IImportCategory[]): void {
-    categories.map((category) => {
+  async createCategories(categories: IImportCategory[]): Promise<void> {
+    categories.map(async (category) => {
       const { name, description } = category;
 
-      const categoryAlreadyExists = this.categoriesRepository.findByName(name);
+      const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
 
-      if (!categoryAlreadyExists) {
-        this.categoriesRepository.create({ name, description });
+      if (categoryAlreadyExists) {
+        throw new AppError("Category already exists");
       }
+
+      await this.categoriesRepository.create({ name, description });
     });
   }
 
   async execute(file: Express.Multer.File): Promise<void> {
     const categories = await this.loadCategories(file);
+
     this.createCategories(categories);
   }
 }

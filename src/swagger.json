@@ -9,11 +9,111 @@
     }
   },
   "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "User Creation",
+        "description": "Create a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" },
+                  "driver_license": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "User already exists"
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "User Authentication",
+        "description": "Authenticate user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": { "type": "string" },
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "email": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Email or password incorrect"
+          }
+        }
+      }
+    },
+    "/users/avatar": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "User avatar Update",
+        "description": "Update user avatar",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Successfully updated" }
+        }
+      }
+    },
     "/categories": {
       "post": {
-        "tags": ["Category"],
+        "tags": ["Categories"],
         "summary": "Category Creation",
-        "Description": "Create a new category",
+        "description": "Create a new category",
         "requestBody": {
           "content": {
             "application/json": {
@@ -41,7 +141,7 @@
         }
       },
       "get": {
-        "tags": ["Category"],
+        "tags": ["Categories"],
         "summary": "List all categories",
         "description": "List all categories",
         "responses": {
@@ -61,8 +161,93 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Category already exists"
           }
         }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Categories"],
+        "summary": "Import categories from a csv file (comma delimited)",
+        "description": "Import categories from a csv file",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Specification Creation",
+        "description": "Create a new specification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#definitions/Specification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Specification already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Specifications"],
+        "summary": "List all specifications",
+        "description": "List all specifications",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#definitions/Specification"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "created_at": { "type": "string" }
       }
     }
   }

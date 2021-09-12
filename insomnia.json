@@ -1,0 +1,350 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-09-12T20:26:37.664Z",
+  "__export_source": "insomnia.desktop.app:v2021.5.2",
+  "resources": [
+    {
+      "_id": "req_cb8e1023ccb04f15b252f09dc4bc389f",
+      "parentId": "fld_02f40591f73c4b8abd15a427d1390d60",
+      "modified": 1631469602754,
+      "created": 1631469550675,
+      "url": "{{ _.baseURL }}/sessions",
+      "name": "Sessions",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"paulomello@gmail.com\",\n\t\"password\": \"123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_acaaadb9843e4a65840f21b088677781"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1631469550675,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_02f40591f73c4b8abd15a427d1390d60",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1631465788267,
+      "created": 1631465788267,
+      "name": "Users",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1631465788267,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "parentId": null,
+      "modified": 1631036684569,
+      "created": 1630950665892,
+      "name": "RentX",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_a74f7658369d4cf5b74a94c6351350f2",
+      "parentId": "fld_02f40591f73c4b8abd15a427d1390d60",
+      "modified": 1631467176299,
+      "created": 1631465795235,
+      "url": "{{ _.baseURL }}/users",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Paulo Mello\",\n\t\"email\": \"paulomello@gmail.com\",\n\t\"driver_license\": \"ABCD123\",\n\t\"password\": \"123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_1b7b4e0f922a4835b3b057fd99246980"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1631465795235,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_07cbdac69c1b4b519f7ee49df09b31b2",
+      "parentId": "fld_02f40591f73c4b8abd15a427d1390d60",
+      "modified": 1631478258573,
+      "created": 1631476521323,
+      "url": "{{ _.baseURL }}/users/avatar",
+      "name": "Avatar",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_e693c4563c9f49e3a1fb4e58c40f44b1",
+            "name": "avatar",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "C:\\Users\\Pichau\\Pictures\\profile_photo.jpg"
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "multipart/form-data",
+          "id": "pair_b9e21edf70d94e0da51c95eca449cf44"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1631465795185,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c82fbf45206d41f492dbfa6e99c90d52",
+      "parentId": "fld_4b095919e4714f28b436b00f1ac7dd12",
+      "modified": 1631478313496,
+      "created": 1630956399814,
+      "url": "{{ _.baseURL }}/specifications",
+      "name": "List",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}",
+        "prefix": "",
+        "disabled": false
+      },
+      "metaSortKey": -1630956399814,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_4b095919e4714f28b436b00f1ac7dd12",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1630956360513,
+      "created": 1630956360513,
+      "name": "Specifications",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1630956360513,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_fd26601d69ea43d3af62863d406e7587",
+      "parentId": "fld_4b095919e4714f28b436b00f1ac7dd12",
+      "modified": 1631478317538,
+      "created": 1630956366004,
+      "url": "{{ _.baseURL }}/specifications",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Câmbio Automático\",\n\t\"description\": \"Carro com câmbio Automático\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_9ea0f2bdb4d846d18313dc63d1f6ae55"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1630956366004,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f366a999f0dd420fbac064b9628b61cc",
+      "parentId": "fld_872d2c61d53e455da34d76526308038c",
+      "modified": 1631478326649,
+      "created": 1631021524348,
+      "url": "{{ _.baseURL }}/categories/import",
+      "name": "Import",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_55da25dd4e08478bbbd7cdaaf5cd0a51",
+            "name": "file",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "C:\\Users\\Pichau\\Downloads\\1615818549022-attachment.csv"
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "multipart/form-data",
+          "id": "pair_4e83c1198b154ed881420fc83b10afef"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1631021524348,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_872d2c61d53e455da34d76526308038c",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1630951808261,
+      "created": 1630951808261,
+      "name": "Categories",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1630951808261,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_58d9a5dcf7b349e99a65405408b3cd3a",
+      "parentId": "fld_872d2c61d53e455da34d76526308038c",
+      "modified": 1631478332633,
+      "created": 1630952929860,
+      "url": "{{ _.baseURL }}/categories",
+      "name": "List",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1630951815049,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b58884048bda4beaa4f178a04bb3d4a3",
+      "parentId": "fld_872d2c61d53e455da34d76526308038c",
+      "modified": 1631478337570,
+      "created": 1630951814999,
+      "url": "{{ _.baseURL }}/categories",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"JEEP2\",\n\t\"description\": \"Categoria de carros JEEP2\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_35f8632e13d24630abba530e7e6e49da"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1630951814999,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_456f9dadc617eaa7cbfc482d74c2926cfa4e2011",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1631477527490,
+      "created": 1630950665900,
+      "name": "Base Environment",
+      "data": {
+        "baseURL": "http://localhost:3333",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzE0Nzc1MTgsImV4cCI6MTYzMTU2MzkxOCwic3ViIjoiNTIwZGYzMDQtZDNlYi00YzYzLWI1ODYtZDIzMDU5NDk0MTE4In0.tQup9Eofu9Yznp6aSvdtKmTT4XJObmb8OhIT8cwesAw"
+      },
+      "dataPropertyOrder": { "&": ["baseURL", "token"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1630950665900,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_456f9dadc617eaa7cbfc482d74c2926cfa4e2011",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1630950665901,
+      "created": 1630950665901,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_215eab2d144741aebda8e131d2d9577f",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1630950665895,
+      "created": 1630950665895,
+      "fileName": "RentalX",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
