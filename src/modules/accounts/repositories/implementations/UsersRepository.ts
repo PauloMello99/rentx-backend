@@ -1,7 +1,8 @@
 import { getRepository, Repository } from "typeorm";
-import { ICreateUserDTO } from "../../../dtos/ICreateUserDTO";
-import { User } from "../../entities/User";
+
+import { User } from "modules/accounts/entities/User";
 import { IUsersRepository } from "../IUsersRepository";
+import { ICreateUserDTO } from "modules/dtos/ICreateUserDTO";
 
 class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
