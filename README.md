@@ -19,12 +19,10 @@ Foi abordado neste projeto:
 **Requisitos Funcionais**
 
 - Deve ser possível cadastrar um novo carro.
-- Deve ser possível listar todas as categorias
 
 **Regras de Negócio**
 
 - Não deve ser possível cadastrar um carro com uma placa já existente.
-- Não deve ser possível alterar a placa de um carro já existente.
 - O carro deve ser cadastrado, por padrão, como disponível.
 - O usuário responsável pelo cadastro deve ser um usuário administrador.
 
@@ -58,7 +56,6 @@ Foi abordado neste projeto:
 **Requisitos Funcionais**
 
 - Deve ser possível cadastrar a imagem do carro.
-- Deve ser possível listar todos os carros.
 
 **Requisitos Não Funcionais**
 
