@@ -1,13 +1,179 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-09-12T20:26:37.664Z",
-  "__export_source": "insomnia.desktop.app:v2021.5.2",
+  "__export_date": "2021-09-25T19:45:19.455Z",
+  "__export_source": "insomnia.desktop.app:v2021.5.3",
   "resources": [
+    {
+      "_id": "req_7933b7b84bcf4dddbbf5c7253d5291ac",
+      "parentId": "fld_6360e848ca584da2a20cb3495e8e6ef2",
+      "modified": 1632087186159,
+      "created": 1632087071781,
+      "url": "{{ _.baseURL }}/cars/available",
+      "name": "List Available",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_d40b6183d52948f1a6b1855700926bc9",
+          "name": "category_id",
+          "value": "f9e6284a-735d-4173-902c-a0c5154700c2",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1632087071781,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_6360e848ca584da2a20cb3495e8e6ef2",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1632073289376,
+      "created": 1632073289376,
+      "name": "Cars",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1632073289377,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "parentId": null,
+      "modified": 1631036684569,
+      "created": 1630950665892,
+      "name": "RentX",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_33b5b76b72644b6cbf14f74d706ac833",
+      "parentId": "fld_6360e848ca584da2a20cb3495e8e6ef2",
+      "modified": 1632075546558,
+      "created": 1632073297531,
+      "url": "{{ _.baseURL }}/cars",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Car Name 2\",\n\t\"brand\": \"Car Brand 2\",\n\t\"description\": \"Car Description 2\",\n\t\"daily_rate\": 200,\n\t\"category_id\": \"f9e6284a-735d-4173-902c-a0c5154700c2\",\n\t\"license_plate\": \"ABC312\",\n\t\"fine_amount\": 100\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_ef8b9a8ce17144ba8efbab99a81ea3fb"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.tokenAdmin }}" },
+      "metaSortKey": -1632073297531,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7fa3b966b4474802a180f0017dc06bad",
+      "parentId": "fld_6360e848ca584da2a20cb3495e8e6ef2",
+      "modified": 1632596766821,
+      "created": 1632596673681,
+      "url": "{{ _.baseURL }}/cars/specifications/6647b136-9c5d-4c9c-b312-797d3aad17e5",
+      "name": "Specifications",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"specifications_id\": [\n\t\t\"b17031ed-2b7b-4eec-9d4f-7ef75c872909\"\n\t]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_56b1c8eceabd4d4dbf9b7985029bb728"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.tokenAdmin }}" },
+      "metaSortKey": -1632073297481,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a659ba6bc4ff4365aaf8ec24f92c802b",
+      "parentId": "fld_6360e848ca584da2a20cb3495e8e6ef2",
+      "modified": 1632598691209,
+      "created": 1632598598738,
+      "url": "{{ _.baseURL }}/cars/images/6647b136-9c5d-4c9c-b312-797d3aad17e5",
+      "name": "Images",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "id": "pair_81602c15e05a4dc8a4bd92a3b384eb0a",
+            "name": "images",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "C:\\Users\\Pichau\\Pictures\\images.jpg"
+          },
+          {
+            "id": "pair_0eaf047d9e294403b70ffaeb451c92ae",
+            "name": "images",
+            "value": "",
+            "description": "",
+            "type": "file",
+            "fileName": "C:\\Users\\Pichau\\Pictures\\need-for-speed-heat.jpg"
+          }
+        ]
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "multipart/form-data",
+          "id": "pair_28a0ee04eedd49a5bdbd3afc6dd5c5f5"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.tokenAdmin }}" },
+      "metaSortKey": -1632073297431,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
     {
       "_id": "req_cb8e1023ccb04f15b252f09dc4bc389f",
       "parentId": "fld_02f40591f73c4b8abd15a427d1390d60",
-      "modified": 1631469602754,
+      "modified": 1632075496759,
       "created": 1631469550675,
       "url": "{{ _.baseURL }}/sessions",
       "name": "Sessions",
@@ -15,7 +181,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"email\": \"paulomello@gmail.com\",\n\t\"password\": \"123\"\n}"
+        "text": "{\n\t\"email\": \"admin@rentx.com\",\n\t\"password\": \"admin\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -47,16 +213,6 @@
       "environmentPropertyOrder": null,
       "metaSortKey": -1631465788267,
       "_type": "request_group"
-    },
-    {
-      "_id": "wrk_1d2f90ff24a043a38f085eb61770c03a",
-      "parentId": null,
-      "modified": 1631036684569,
-      "created": 1630950665892,
-      "name": "RentX",
-      "description": "",
-      "scope": "collection",
-      "_type": "workspace"
     },
     {
       "_id": "req_a74f7658369d4cf5b74a94c6351350f2",
@@ -134,7 +290,7 @@
     {
       "_id": "req_c82fbf45206d41f492dbfa6e99c90d52",
       "parentId": "fld_4b095919e4714f28b436b00f1ac7dd12",
-      "modified": 1631478313496,
+      "modified": 1632596738548,
       "created": 1630956399814,
       "url": "{{ _.baseURL }}/specifications",
       "name": "List",
@@ -145,7 +301,7 @@
       "headers": [],
       "authentication": {
         "type": "bearer",
-        "token": "{{ _.token }}",
+        "token": "{{ _.tokenAdmin }}",
         "prefix": "",
         "disabled": false
       },
@@ -314,14 +470,15 @@
     {
       "_id": "env_456f9dadc617eaa7cbfc482d74c2926cfa4e2011",
       "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
-      "modified": 1631477527490,
+      "modified": 1632593865070,
       "created": 1630950665900,
       "name": "Base Environment",
       "data": {
         "baseURL": "http://localhost:3333",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzE0Nzc1MTgsImV4cCI6MTYzMTU2MzkxOCwic3ViIjoiNTIwZGYzMDQtZDNlYi00YzYzLWI1ODYtZDIzMDU5NDk0MTE4In0.tQup9Eofu9Yznp6aSvdtKmTT4XJObmb8OhIT8cwesAw"
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzIwNzUyODgsImV4cCI6MTYzMjE2MTY4OCwic3ViIjoiZjU4Nzk2NTctMjZmZC00NWMxLWJkYjQtYjU1OGE4OTI4Mjc2In0.uoeNq8DJtvfUP7-wyJxNBvZBvyjLA426ro6oxAJmTzQ",
+        "tokenAdmin": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzI1OTM4NTQsImV4cCI6MTYzMjY4MDI1NCwic3ViIjoiMjllZGU1YjUtYzBhNy00YTE5LWJhNjQtNjZiZDY2OTE3YWU4In0.FHx0bg4hU1uDQ1QCbWH2wBQX_hyHKO1pvg4GWi1Fs7U"
       },
-      "dataPropertyOrder": { "&": ["baseURL", "token"] },
+      "dataPropertyOrder": { "&": ["baseURL", "token", "tokenAdmin"] },
       "color": null,
       "isPrivate": false,
       "metaSortKey": 1630950665900,
