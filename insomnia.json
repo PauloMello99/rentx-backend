@@ -1,9 +1,63 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-09-25T19:45:19.455Z",
+  "__export_date": "2021-09-25T21:23:17.399Z",
   "__export_source": "insomnia.desktop.app:v2021.5.3",
   "resources": [
+    {
+      "_id": "req_feb92ed7fcd2496cb1a168149fcc86d6",
+      "parentId": "fld_82bdaf4648684235bcca91801ffee05c",
+      "modified": 1632604761019,
+      "created": 1632604435666,
+      "url": "{{ _.baseURL }}/rentals",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"expected_return_date\": \"2021-09-26T22:16:09.581Z\",\n\t\"car_id\": \"6647b136-9c5d-4c9c-b312-797d3aad17e5\",\n\t\"user_id\": \"f5879657-26fd-45c1-bdb4-b558a8928276\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_b1fb1f3695e441b6aa46bf4547e19cdc"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1632604435667,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_82bdaf4648684235bcca91801ffee05c",
+      "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "modified": 1632604429692,
+      "created": 1632604429692,
+      "name": "Rentals",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1632604429692,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_1d2f90ff24a043a38f085eb61770c03a",
+      "parentId": null,
+      "modified": 1631036684569,
+      "created": 1630950665892,
+      "name": "RentX",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
     {
       "_id": "req_7933b7b84bcf4dddbbf5c7253d5291ac",
       "parentId": "fld_6360e848ca584da2a20cb3495e8e6ef2",
@@ -46,16 +100,6 @@
       "environmentPropertyOrder": null,
       "metaSortKey": -1632073289377,
       "_type": "request_group"
-    },
-    {
-      "_id": "wrk_1d2f90ff24a043a38f085eb61770c03a",
-      "parentId": null,
-      "modified": 1631036684569,
-      "created": 1630950665892,
-      "name": "RentX",
-      "description": "",
-      "scope": "collection",
-      "_type": "workspace"
     },
     {
       "_id": "req_33b5b76b72644b6cbf14f74d706ac833",
@@ -173,7 +217,7 @@
     {
       "_id": "req_cb8e1023ccb04f15b252f09dc4bc389f",
       "parentId": "fld_02f40591f73c4b8abd15a427d1390d60",
-      "modified": 1632075496759,
+      "modified": 1632604504412,
       "created": 1631469550675,
       "url": "{{ _.baseURL }}/sessions",
       "name": "Sessions",
@@ -181,7 +225,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"email\": \"admin@rentx.com\",\n\t\"password\": \"admin\"\n}"
+        "text": "{\n\t\"email\": \"paulomello@gmail.com\",\n\t\"password\": \"123\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -470,12 +514,12 @@
     {
       "_id": "env_456f9dadc617eaa7cbfc482d74c2926cfa4e2011",
       "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
-      "modified": 1632593865070,
+      "modified": 1632604520737,
       "created": 1630950665900,
       "name": "Base Environment",
       "data": {
         "baseURL": "http://localhost:3333",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzIwNzUyODgsImV4cCI6MTYzMjE2MTY4OCwic3ViIjoiZjU4Nzk2NTctMjZmZC00NWMxLWJkYjQtYjU1OGE4OTI4Mjc2In0.uoeNq8DJtvfUP7-wyJxNBvZBvyjLA426ro6oxAJmTzQ",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzI2MDQ1MTIsImV4cCI6MTYzMjY5MDkxMiwic3ViIjoiZjU4Nzk2NTctMjZmZC00NWMxLWJkYjQtYjU1OGE4OTI4Mjc2In0.65QGD38Q3rgVJz5mlSrSGdrQEOHJNh5v8vlY9iw7Z0w",
         "tokenAdmin": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzI1OTM4NTQsImV4cCI6MTYzMjY4MDI1NCwic3ViIjoiMjllZGU1YjUtYzBhNy00YTE5LWJhNjQtNjZiZDY2OTE3YWU4In0.FHx0bg4hU1uDQ1QCbWH2wBQX_hyHKO1pvg4GWi1Fs7U"
       },
       "dataPropertyOrder": { "&": ["baseURL", "token", "tokenAdmin"] },
