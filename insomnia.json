@@ -1,32 +1,23 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-09-25T21:23:17.399Z",
+  "__export_date": "2021-09-26T22:33:24.462Z",
   "__export_source": "insomnia.desktop.app:v2021.5.3",
   "resources": [
     {
-      "_id": "req_feb92ed7fcd2496cb1a168149fcc86d6",
+      "_id": "req_c8846abccfa046b796c52167bf03bece",
       "parentId": "fld_82bdaf4648684235bcca91801ffee05c",
-      "modified": 1632604761019,
-      "created": 1632604435666,
-      "url": "{{ _.baseURL }}/rentals",
-      "name": "Create",
+      "modified": 1632678717130,
+      "created": 1632678702692,
+      "url": "{{ _.baseURL }}/rentals/user",
+      "name": "List By User",
       "description": "",
-      "method": "POST",
-      "body": {
-        "mimeType": "application/json",
-        "text": "{\n\t\"expected_return_date\": \"2021-09-26T22:16:09.581Z\",\n\t\"car_id\": \"6647b136-9c5d-4c9c-b312-797d3aad17e5\",\n\t\"user_id\": \"f5879657-26fd-45c1-bdb4-b558a8928276\"\n}"
-      },
+      "method": "GET",
+      "body": {},
       "parameters": [],
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json",
-          "id": "pair_b1fb1f3695e441b6aa46bf4547e19cdc"
-        }
-      ],
+      "headers": [],
       "authentication": { "type": "bearer", "token": "{{ _.token }}" },
-      "metaSortKey": -1632604435667,
+      "metaSortKey": -1632678702692,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
@@ -57,6 +48,61 @@
       "description": "",
       "scope": "collection",
       "_type": "workspace"
+    },
+    {
+      "_id": "req_635eb1c52bdd42dcac94d3bdcdb49ef4",
+      "parentId": "fld_82bdaf4648684235bcca91801ffee05c",
+      "modified": 1632677653535,
+      "created": 1632677062203,
+      "url": "{{ _.baseURL }}/rentals/devolution/a759a830-5a22-47e9-b6fc-0550b3c6edcb",
+      "name": "Devolution",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1632677062203,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_feb92ed7fcd2496cb1a168149fcc86d6",
+      "parentId": "fld_82bdaf4648684235bcca91801ffee05c",
+      "modified": 1632675629482,
+      "created": 1632604435666,
+      "url": "{{ _.baseURL }}/rentals",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"expected_return_date\": \"2021-09-27T18:00:00.000Z\",\n\t\"car_id\": \"6647b136-9c5d-4c9c-b312-797d3aad17e5\",\n\t\"user_id\": \"f5879657-26fd-45c1-bdb4-b558a8928276\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_b1fb1f3695e441b6aa46bf4547e19cdc"
+        }
+      ],
+      "authentication": { "type": "bearer", "token": "{{ _.token }}" },
+      "metaSortKey": -1632604435667,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
     },
     {
       "_id": "req_7933b7b84bcf4dddbbf5c7253d5291ac",
@@ -514,12 +560,12 @@
     {
       "_id": "env_456f9dadc617eaa7cbfc482d74c2926cfa4e2011",
       "parentId": "wrk_1d2f90ff24a043a38f085eb61770c03a",
-      "modified": 1632604520737,
+      "modified": 1632679137843,
       "created": 1630950665900,
       "name": "Base Environment",
       "data": {
         "baseURL": "http://localhost:3333",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzI2MDQ1MTIsImV4cCI6MTYzMjY5MDkxMiwic3ViIjoiZjU4Nzk2NTctMjZmZC00NWMxLWJkYjQtYjU1OGE4OTI4Mjc2In0.65QGD38Q3rgVJz5mlSrSGdrQEOHJNh5v8vlY9iw7Z0w",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzI2NzkxMjgsImV4cCI6MTYzMjc2NTUyOCwic3ViIjoiZjU4Nzk2NTctMjZmZC00NWMxLWJkYjQtYjU1OGE4OTI4Mjc2In0.2ChbFk8l5nPjheW79INx4-VBF9Ev9NoOgpIBbJdDIKw",
         "tokenAdmin": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzI1OTM4NTQsImV4cCI6MTYzMjY4MDI1NCwic3ViIjoiMjllZGU1YjUtYzBhNy00YTE5LWJhNjQtNjZiZDY2OTE3YWU4In0.FHx0bg4hU1uDQ1QCbWH2wBQX_hyHKO1pvg4GWi1Fs7U"
       },
       "dataPropertyOrder": { "&": ["baseURL", "token", "tokenAdmin"] },
