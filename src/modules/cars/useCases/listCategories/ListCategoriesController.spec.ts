@@ -13,13 +13,12 @@ describe("List Category Controller", () => {
     connection = await createConnection();
     await connection.runMigrations();
 
-    const id = uuidV4();
     const password = await hash("admin", 8);
 
     await connection.query(`
     INSERT INTO 
     USERS (id, name, email, password, "isAdmin", driver_license, created_at)
-    VALUES('${id}', 'admin', 'admin@rentx.com', '${password}', true, 'XXXXXX', 'now()')
+    VALUES('${uuidV4()}', 'admin', 'admin@rentx.com', '${password}', true, 'XXXXXX', 'now()')
     `);
   });
 
@@ -29,17 +28,17 @@ describe("List Category Controller", () => {
   });
 
   it("should be able to list all categories", async () => {
-    const responseToken = await request(app).post("/sessions").send({
+    const session = await request(app).post("/sessions").send({
       email: "admin@rentx.com",
       password: "admin",
     });
 
-    const { token } = responseToken.body;
+    const { token } = session.body;
 
     await request(app)
-      .get("/categories")
-      .send({ name: "Category Test", description: "Category Description" })
-      .set({ Authorization: `Bearer ${token}` });
+      .post("/categories")
+      .set({ authorization: `Bearer ${token}` })
+      .send({ name: "Category Test", description: "Category Description" });
 
     const response = await request(app).get("/categories");
 

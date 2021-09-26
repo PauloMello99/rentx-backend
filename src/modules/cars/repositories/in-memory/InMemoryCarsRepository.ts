@@ -5,6 +5,11 @@ import { ICarsRepository, CarListFilters } from "../ICarsRepository";
 class InMemoryCarsRepository implements ICarsRepository {
   cars: Car[] = [];
 
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    const findIndex = this.cars.findIndex((car) => car.id === id);
+    this.cars[findIndex].available = available;
+  }
+
   async create({
     id,
     name,
@@ -18,8 +23,9 @@ class InMemoryCarsRepository implements ICarsRepository {
   }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
 
-    Object.assign(car, {
-      id,
+    const carDTO = {
+      id: car.id,
+      specifications: car.specifications,
       name,
       brand,
       category_id,
@@ -27,8 +33,17 @@ class InMemoryCarsRepository implements ICarsRepository {
       description,
       fine_amount,
       license_plate,
-      specifications,
-    });
+    };
+
+    if (id) {
+      carDTO.id = id;
+    }
+
+    if (specifications) {
+      carDTO.specifications = specifications;
+    }
+
+    Object.assign(car, carDTO);
 
     this.cars.push(car);
 

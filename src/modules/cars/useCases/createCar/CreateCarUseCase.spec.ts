@@ -40,7 +40,7 @@ describe("Create Car", () => {
 
     await createCarUseCase.execute(car);
 
-    expect(async () => createCarUseCase.execute(car)).rejects.toBeInstanceOf(AppError);
+    await expect(createCarUseCase.execute(car)).rejects.toEqual(new AppError("Car already exists"));
   });
 
   it("should be able to create a car with available true by default", async () => {
