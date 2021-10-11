@@ -1,10 +1,11 @@
+import { Connection } from "typeorm";
 import request from "supertest";
 import { hash } from "bcryptjs";
 import { v4 as uuidV4 } from "uuid";
 
 import { app } from "shared/infra/http/app";
+
 import createConnection from "shared/infra/typeorm";
-import { Connection } from "typeorm";
 
 let connection: Connection;
 
@@ -17,7 +18,7 @@ describe("Create Category Controller", () => {
     const password = await hash("admin", 8);
 
     await connection.query(`
-    INSERT INTO 
+    INSERT INTO
     USERS (id, name, email, password, "isAdmin", driver_license, created_at)
     VALUES('${id}', 'admin', 'admin@rentx.com', '${password}', true, 'XXXXXX', 'now()')
     `);
@@ -34,7 +35,7 @@ describe("Create Category Controller", () => {
       password: "admin",
     });
 
-    const { token } = responseToken.body;
+    const { refresh_token } = responseToken.body;
 
     const response = await request(app)
       .post("/categories")
@@ -43,7 +44,7 @@ describe("Create Category Controller", () => {
         description: "Category Description",
       })
       .set({
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${refresh_token}`,
       });
 
     expect(response.statusCode).toEqual(201);
@@ -55,12 +56,12 @@ describe("Create Category Controller", () => {
       password: "admin",
     });
 
-    const { token } = responseToken.body;
+    const { refresh_token } = responseToken.body;
 
     const response = await request(app)
       .post("/categories")
       .send({ name: "Category Test", description: "Category Description" })
-      .set({ Authorization: `Bearer ${token}` });
+      .set({ Authorization: `Bearer ${refresh_token}` });
 
     expect(response.statusCode).toEqual(400);
   });

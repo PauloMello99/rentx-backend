@@ -1,0 +1,9 @@
+export const SECRET_TOKEN = "9be36ae892270732c64c4cb11254943b";
+
+export const SECRET_REFRESH_TOKEN = "af5a8894e3f3eb5d16051025c13e9a70";
+
+export const TOKEN_EXPIRES_IN = "15m";
+
+export const REFRESH_TOKEN_EXPIRES_IN = "30d";
+
+export const REFRESH_TOKEN_EXPIRES_DAYS = 30;
