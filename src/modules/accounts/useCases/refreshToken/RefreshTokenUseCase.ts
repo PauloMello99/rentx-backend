@@ -11,11 +11,17 @@ import {
   REFRESH_TOKEN_EXPIRES_IN,
   SECRET_REFRESH_TOKEN,
   SECRET_TOKEN,
+  TOKEN_EXPIRES_IN,
 } from "config/auth";
 
 interface IPayload {
   sub: string;
   email: string;
+}
+
+interface ITokenResponse {
+  token: string;
+  refresh_token: string;
 }
 
 @injectable()
@@ -27,7 +33,7 @@ class RefreshTokenUseCase {
     private dateProvider: IDateProvider
   ) {}
 
-  async execute(token: string): Promise<string> {
+  async execute(token: string): Promise<ITokenResponse> {
     const decode = verify(token, SECRET_REFRESH_TOKEN);
     const { sub: user_id, email } = decode as IPayload;
 
@@ -44,6 +50,11 @@ class RefreshTokenUseCase {
       expiresIn: REFRESH_TOKEN_EXPIRES_IN,
     });
 
+    const newToken = sign({}, SECRET_TOKEN, {
+      subject: user_id,
+      expiresIn: TOKEN_EXPIRES_IN,
+    });
+
     const expires_date = this.dateProvider.addDays(REFRESH_TOKEN_EXPIRES_DAYS);
 
     await this.userTokensRepository.create({
@@ -52,7 +63,7 @@ class RefreshTokenUseCase {
       expires_date,
     });
 
-    return refresh_token;
+    return { token: newToken, refresh_token };
   }
 }
 
